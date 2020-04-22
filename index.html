@@ -1,91 +1,57 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebPay</title>
-  <!-- Style -->
-  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css" type="text/css">
 </head>
+
 <body>
-  <div class="container">
-    <div class="wrap">
-      <div class="pay">
-        <div class="method">
-          <div class="method-card">
-            <div class="card-logo">
-              <div class="card-visa"></div>
-              <div class="card-mir"></div>
-              <div class="card-mastercard"></div>
-            </div>
-            <p class="method-card-title">Банковская карта</p>
-          </div>
-          <div class="method-phone">
-            <div class="phone-logo">
-              <div class="phone-mts"></div>
-              <div class="phone-tele2"></div>
-              <div class="phone-megafon"></div>
-            </div>
-            <p class="method-card-title">Баланс телефона</p>
-          </div>
+  <div class="payment">
+    <div class="method-pay">
+      <div class="method-pay__cards active">
+        <div class="method-pay__icons">
+          <div class="icon-visa"></div>
+          <div class="icon-mastercard"></div>
+          <div class="icon-mir"></div>
         </div>
-        <div class="pay-content">
-          <div class="errors">
-            
-          </div>
-          <div class="pay-card"> <!--deactive-->
-            <div class="card">
-              <div class="card-front">
-                <div class="card-items">
-                  <div class="card-item">
-                    <label for="" class="title-card">Номер карты</label>
-                    <input type="text" class="card-number field" id="number-card" maxlength="24" pattern="[0-9]{16,20}" placeholder="0000 0000 0000 0000">
-                  </div>
-                  <div class="card-item">
-                    <label for="" class="title-card">Владелец карты</label>
-                    <input type="text" class="card-number field" id="name-card" placeholder="Имя на латинице">
-                  </div>
-                </div>
-                <div class="card-items-bottom">
-                  <div class="card-item">
-                    <label for="" class="title-card">Срок действия </label>
-                    <div class="card-bottom">
-                      <div class="card-date">
-                        <input type="text" class="card-number-date field" placeholder="00" maxlength="2">
-                        <span class="slash">/</span>
-                        <input type="text" class="card-number-date field" placeholder="00" maxlength="2">
-                      </div>
-                      <div class="card-bottom-logo"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-back">
-                <div class="card-line"></div>
-                <div class="card-code">
-                  <div class="card-code-item">
-                    <span class="code-title">CVV2/CVC2</span>
-                    <input type="text" class="card-code-number field" maxlength="3">
-                  </div>
-                  <div class="code-text">
-                    <p class="code-desc">цифровой код на обратной стороне карты</p>
-                  </div>
-                </div>
-              </div>
-              <div class="card-btns">
-                <button class="btn-pay">Оплатить</button>
-              </div>
-            </div>
-          </div>
-          <div class="pay-phone deactive">
-            test
-          </div>
+        <p class="method-pay__title">Банковская карта</p>
+      </div>
+      <div class="method-pay__phone">
+        <div class="method-pay__icons">
+          <div class="icon-mts"></div>
+          <!-- <div class="icon-tele2"></div> -->
+          <!-- <div class="icon-megafon"></div> -->
+          <div class="icon-beeline"></div>
+          <div class="icon-yota"></div>
         </div>
+        <p class="method-pay__title">Номер телефона</p>
       </div>
     </div>
+    <div class="payment-form-card">
+      <label for="name">Номер карты</label>
+      <input type="text" placeholder="XXXX XXXX XXXX XXXX" class="input input-card">
+      <div class="cards">
+        <div class="cards-visa"></div>
+        <div class="card-mastercard"></div>
+        <div class="card-mir"></div>
+      </div>
+      <label for="name">Владелец карты</label>
+      <input type="text" placeholder="SURNAME NAME" class="input input-name">
+      <label for="name">MM/YY</label>
+      <input type="text" placeholder="MM/YY" class="input input-time">
+      <label for="name">CVV2/CVC2</label>
+      <input type="text" placeholder="XXX" class="input input-code">
+      <button class="payment-form-card__pay button_card">Оплатить</button>
+    </div>
+    <div class="payment-form-phone">
+
+    </div>
   </div>
-<!-- Script -->
-<script src="js/main.js"></script>
-<script src="js/card.js"></script>
+  <script src="js/libs/cleave.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
