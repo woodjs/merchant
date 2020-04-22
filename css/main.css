@@ -169,3 +169,11 @@ body {
   border-color: red;
   box-shadow: 0 0 5px red;
 }
+
+
+/*Media*/
+@media (min-width: 320px) and (max-width: 980px) {
+	.payment {
+    width: 100%;
+    border-radius: 0px;
+	}
