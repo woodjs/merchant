@@ -1,13 +1,19 @@
 window.onload = () => {
   let pay_card = document.querySelector('.method-pay__cards'),
-    pay_phone = document.querySelector('.method-pay__phone');
+    pay_phone = document.querySelector('.method-pay__phone'),
+    block_form_card = document.querySelector('.payment-form-card'),
+    block_form_phone = document.querySelector('.payment-form-phone');
   pay_card.addEventListener('click', function () {
     pay_phone.classList.remove('active');
     this.classList.add('active');
+    block_form_phone.classList.add('inactive');
+    block_form_card.classList.remove('inactive');
   });
   pay_phone.addEventListener('click', function () {
     pay_card.classList.remove('active');
     this.classList.add('active');
+    block_form_phone.classList.remove('inactive');
+    block_form_card.classList.add('inactive');
   });
 
   /*Маска*/
@@ -37,7 +43,7 @@ window.onload = () => {
     numericOnly: true
   })
   /*Валидация*/
-  var
+  let
     number_card = document.querySelector('.input-card'),
     name_card = document.querySelector('.input-name'),
     button_pay_card = document.querySelector('.button_card');
@@ -101,5 +107,38 @@ window.onload = () => {
 
   function focus_element() {
     this.classList.remove('invalid');
+  }
+  
+  /* Проверка на наличие классов */
+  requestAnimationFrame(check_class);
+  function check_class() {
+    /* Проверяем оба блока */
+    if (!pay_card.classList.contains('active') && !pay_phone.classList.contains('active')) {
+      pay_card.classList.add('active');
+    }
+    /* Конец проверки обоих блоков */
+    if (pay_card.classList.contains('active')) {
+      if (!block_form_phone.classList.contains('inactive')) {
+        block_form_phone.classList.add('inactive');
+      }
+      if (pay_phone.classList.contains('active')) {
+        pay_phone.classList.remove('active');
+      }
+      if (block_form_card.classList.contains('inactive') && block_form_phone.classList.contains('inactive')) {
+      block_form_card.classList.remove('inactive');
+    }
+    }
+    if (pay_phone.classList.contains('active')) {
+      if (!block_form_card.classList.contains('inactive')) {
+        block_form_card.classList.add('inactive');
+      }
+      if (pay_card.classList.contains('active')) {
+        pay_card.classList.remove('active');
+      } 
+      if (block_form_card.classList.contains('inactive') && block_form_phone.classList.contains('inactive')) {
+        block_form_phone.classList.remove('inactive');
+      }
+    }
+    requestAnimationFrame(check_class);
   }
 }
