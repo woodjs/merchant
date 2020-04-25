@@ -9,45 +9,47 @@
 </head>
 
 <body>
-  <div class="payment">
-    <div class="method-pay">
-      <div class="method-pay__cards active">
-        <div class="method-pay__icons">
-          <div class="icon-visa"></div>
-          <div class="icon-mastercard"></div>
-          <div class="icon-mir"></div>
+  <div class="container">
+    <div class="payment">
+      <div class="method-pay">
+        <div class="method-pay__cards active">
+          <div class="method-pay__icons">
+            <div class="icon-visa"></div>
+            <div class="icon-mastercard"></div>
+            <div class="icon-mir"></div>
+          </div>
+          <p class="method-pay__title">Банковская карта</p>
         </div>
-        <p class="method-pay__title">Банковская карта</p>
-      </div>
-      <div class="method-pay__phone">
-        <div class="method-pay__icons">
-          <div class="icon-mts"></div>
-          <!-- <div class="icon-tele2"></div> -->
-          <!-- <div class="icon-megafon"></div> -->
-          <div class="icon-beeline"></div>
-          <div class="icon-yota"></div>
+        <div class="method-pay__phone">
+          <div class="method-pay__icons">
+            <div class="icon-mts"></div>
+            <!-- <div class="icon-tele2"></div> -->
+            <!-- <div class="icon-megafon"></div> -->
+            <div class="icon-beeline"></div>
+            <div class="icon-yota"></div>
+          </div>
+          <p class="method-pay__title">Номер телефона</p>
         </div>
-        <p class="method-pay__title">Номер телефона</p>
       </div>
-    </div>
-    <div class="payment-form-card">
-      <label for="name">Номер карты</label>
-      <input type="text" placeholder="XXXX XXXX XXXX XXXX" class="input input-card">
-      <div class="cards">
-        <div class="cards-visa"></div>
-        <div class="card-mastercard"></div>
-        <div class="card-mir"></div>
+      <div class="payment-form-card">
+        <label for="name">Номер карты</label>
+        <input type="text" placeholder="XXXX XXXX XXXX XXXX" class="input input-card">
+        <div class="cards">
+          <div class="cards-visa"></div>
+          <div class="card-mastercard"></div>
+          <div class="card-mir"></div>
+        </div>
+        <label for="name">Владелец карты</label>
+        <input type="text" placeholder="SURNAME NAME" class="input input-name">
+        <label for="name">MM/YY</label>
+        <input type="text" placeholder="MM/YY" class="input input-time">
+        <label for="name">CVV2/CVC2</label>
+        <input type="text" placeholder="XXX" class="input input-code">
+        <button class="payment-form-card__pay button_card">Оплатить</button>
       </div>
-      <label for="name">Владелец карты</label>
-      <input type="text" placeholder="SURNAME NAME" class="input input-name">
-      <label for="name">MM/YY</label>
-      <input type="text" placeholder="MM/YY" class="input input-time">
-      <label for="name">CVV2/CVC2</label>
-      <input type="text" placeholder="XXX" class="input input-code">
-      <button class="payment-form-card__pay button_card">Оплатить</button>
-    </div>
-    <div class="payment-form-phone">
+      <div class="payment-form-phone">
 
+      </div>
     </div>
   </div>
   <script src="js/libs/cleave.js"></script>

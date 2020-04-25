@@ -12,7 +12,21 @@ window.onload = () => {
 
   /*Маска*/
   new Cleave('.input-card', {
-    creditCard: true
+    creditCard: true,
+    onCreditCardTypeChanged: function (type) {
+      console.log(type);
+      if (type === 'visa') {
+        document.querySelector('.cards-visa').classList.add('cards-visa_active');
+      } else if (type === 'mastercard') {
+        document.querySelector('.card-mastercard').classList.add('card-mastercard_active');
+      } else if (type === 'mir') {
+        document.querySelector('.card-mir').classList.add('card-mir_active');
+      } else {
+        document.querySelector('.cards-visa').classList.remove('cards-visa_active');
+        document.querySelector('.card-mastercard').classList.remove('card-mastercard_active');
+        document.querySelector('.card-mir').classList.remove('card-mir_active');
+      }
+    }
   });
   new Cleave('.input-time', {
     date: true,
@@ -23,10 +37,10 @@ window.onload = () => {
     numericOnly: true
   })
   /*Валидация*/
-  let
+  var
     number_card = document.querySelector('.input-card'),
-  name_card = document.querySelector('.input-name'),
-  button_pay_card = document.querySelector('.button_card');
+    name_card = document.querySelector('.input-name'),
+    button_pay_card = document.querySelector('.button_card');
 
   /*Номер карты*/
   number_card.addEventListener('blur', valid_number_card);
@@ -44,14 +58,13 @@ window.onload = () => {
         inputs_card[i].classList.add('invalid');
       }
       inputs_card[i].addEventListener('focus', focus_element);
-      inputs_card[i].addEventListener('blur', function() {
+      /*Пофиксить данный код*/
+      inputs_card[i].addEventListener('blur', function () {
         if (this.value.length == 0) {
           this.classList.add('invalid');
-        } else {
-          this.classList.remove('invalid');
         }
       });
-
+      /*======END======*/
     }
   });
 
